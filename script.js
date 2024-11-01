@@ -1,3 +1,10 @@
+// Landing page
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("title").classList.add("fade-in");
+    setTimeout(() => document.querySelector(".globe").classList.add("fade-in"), 2000);
+    setTimeout(() => document.getElementById("subtitle").classList.add("fade-in"), 4000);
+    setTimeout(() => document.getElementById("enterButton").classList.add("fade-in"), 6000);
+});
 
 const blogPosts = [
     { title: "Analysis 1", date: "October 1, 2024", content: "Brief summary of analysis 1." },
@@ -18,9 +25,10 @@ blogPosts.forEach(post => {
     blogContainer.appendChild(postDiv);
 });
 
-// Contact form submission (optional)
+// Contact form submission
 document.getElementById("contact-form").addEventListener("submit", function(event) {
     event.preventDefault();
     alert("Thank you for reaching out!");
     this.reset();
 });
+
