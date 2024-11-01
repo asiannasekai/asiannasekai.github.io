@@ -3,18 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asianna Sekai</title>
+    <title>Sekai's Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Welcome to My World</h1>
+    <!-- Navigation -->
+    <nav>
+        <h1 class="logo">Sekai</h1>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="header">
+        <h2>Welcome to Sekai's World!</h2>
+        <p>A space for creativity, analytics, and tech insights.</p>
+        <a href="#about" class="cta-button">Discover More</a>
     </header>
-    <section>
-        <p>Wahoo!</p>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h3>About Me</h3>
+        <p>Hello! I’m Sekai, a data enthusiast and content creator.</p>
+        <img src="assets/profile-pic.jpg" alt="Sekai's Picture">
     </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <h3>Projects</h3>
+        <div class="project-grid">
+            <div class="project-card">
+                <h4>Project 1</h4>
+                <p>Description of Project 1.</p>
+            </div>
+            <div class="project-card">
+                <h4>Project 2</h4>
+                <p>Description of Project 2.</p>
+            </div>
+            <!-- Add more projects as needed -->
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="blog">
+        <h3>Blog</h3>
+        <p>Biweekly mini-analyses and tech insights.</p>
+        <div id="blog-posts">
+            <!-- JavaScript will populate blog posts here dynamically -->
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h3>Contact</h3>
+        <form id="contact-form">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Asianna Haughton</p>
+        <p>&copy; Sekai 2024. All rights reserved.</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
