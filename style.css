@@ -1,25 +1,50 @@
-/* Landing Page Styling */
+/* General Landing Page Styling */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8c6d8; /* Soft pink background */
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+/* Landing Page Layout */
 .landing-page {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #f8c6d8; /* Soft pink background */
-    color: #fff;
     text-align: center;
 }
 
-.landing-page h1 {
-    font-size: 3em;
-    margin-bottom: 20px;
+/* Title Animation */
+#title {
+    font-size: 4em;
+    letter-spacing: 0.5em;
+    opacity: 0;
+    animation: fadeInTitle 2s forwards;
 }
 
-.landing-page p {
-    font-size: 1.5em;
-    margin-bottom: 30px;
+/* SVG Globe Styling */
+.globe-container {
+    margin: 20px 0;
+    opacity: 0;
+    animation: fadeInGlobe 2s 1s forwards;
 }
 
+.globe {
+    animation: spin 10s linear infinite; /* Slow spinning effect */
+}
+
+/* Subtitle and Enter Button */
+#subtitle, #enterButton {
+    opacity: 0;
+    animation: fadeInText 2s 3s forwards;
+}
+
+/* Enter Button Styling */
 .enter-button {
     background-color: #fff;
     color: #f8c6d8;
@@ -27,6 +52,7 @@
     border-radius: 50px;
     text-decoration: none;
     font-size: 1.2em;
+    margin-top: 20px;
     transition: background-color 0.3s;
 }
 
@@ -34,11 +60,34 @@
     background-color: #f3a6c6;
 }
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+/* Keyframes for Animations */
+@keyframes fadeInTitle {
+    to {
+        opacity: 1;
+    }
 }
+
+@keyframes fadeInGlobe {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInText {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 
 body {
     font-family: 'Arial', sans-serif;
