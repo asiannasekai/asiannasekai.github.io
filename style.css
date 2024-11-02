@@ -190,15 +190,15 @@ body, html {
     font-size: 0.5em;
     color: #fefefa;
     background-color: #306030;
-    border-radius: 50%;
-    padding: 5px;
+    border-radius: 30%;
+    padding: 2px;
     cursor: pointer;
     margin-left: 8px;
     transition: background-color 0.3s ease;
 }
 
 .info-icon:hover {
-    background-color: #f3a6c6; /* Light pink background on hover */
+    background-color: #fefefa; /* Light pink background on hover */
 }
 
 /* Blurb Styling */
