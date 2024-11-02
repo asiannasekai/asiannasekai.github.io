@@ -190,10 +190,10 @@ body, html {
     font-size: 0.1em; /* Smaller font size */
     color: #fefefa;
     background-color: #306030;
-    border-radius: 50%;
+    border-radius: 30%;
     padding: 2px; /* Adjust padding for smaller size */
     cursor: pointer;
-    margin-left: 6px;
+    margin-left: 3px;
     transition: background-color 0.3s ease;
 }
 
