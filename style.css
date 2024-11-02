@@ -28,7 +28,7 @@ body, html {
     font-weight: bold;
     color: #fefefa;
     white-space: nowrap;
-    animation: flow 15s linear infinite;
+    animation: flow 20s linear infinite;
 }
 
 .flowing-words span {
