@@ -32,6 +32,8 @@ document.getElementById("contact-form").addEventListener("submit", function(even
     this.reset();
 });
 
+let blurbTimeout;
+
 function toggleBlurb() {
     const blurb = document.getElementById('hoverBlurb');
     
@@ -39,10 +41,16 @@ function toggleBlurb() {
     blurb.style.visibility = 'visible';
     blurb.style.opacity = '1';
 
+    // Clear any existing timeout to reset the 10-second timer
+    if (blurbTimeout) {
+        clearTimeout(blurbTimeout);
+    }
+
     // Hide the blurb after 10 seconds
-    setTimeout(() => {
+    blurbTimeout = setTimeout(() => {
         blurb.style.visibility = 'hidden';
         blurb.style.opacity = '0';
     }, 10000); // 10,000 milliseconds = 10 seconds
 }
+
 
