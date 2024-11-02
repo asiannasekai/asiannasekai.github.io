@@ -34,11 +34,15 @@ document.getElementById("contact-form").addEventListener("submit", function(even
 
 function toggleBlurb() {
     const blurb = document.getElementById('hoverBlurb');
-    if (blurb.style.visibility === 'visible') {
+    
+    // Show the blurb
+    blurb.style.visibility = 'visible';
+    blurb.style.opacity = '1';
+
+    // Hide the blurb after 10 seconds
+    setTimeout(() => {
         blurb.style.visibility = 'hidden';
         blurb.style.opacity = '0';
-    } else {
-        blurb.style.visibility = 'visible';
-        blurb.style.opacity = '1';
-    }
+    }, 10000); // 10,000 milliseconds = 10 seconds
 }
+
