@@ -32,3 +32,13 @@ document.getElementById("contact-form").addEventListener("submit", function(even
     this.reset();
 });
 
+function toggleBlurb() {
+    const blurb = document.getElementById('hoverBlurb');
+    if (blurb.style.visibility === 'visible') {
+        blurb.style.visibility = 'hidden';
+        blurb.style.opacity = '0';
+    } else {
+        blurb.style.visibility = 'visible';
+        blurb.style.opacity = '1';
+    }
+}
