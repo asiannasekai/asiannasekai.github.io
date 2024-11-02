@@ -139,3 +139,49 @@ body, html {
     }
 }
 
+/* Media Query for Mobile Devices */
+@media (max-width: 768px) {
+    /* General Adjustments */
+    body, html {
+        font-size: 14px; /* Adjust base font size for smaller screens */
+        padding: 10px; /* Add padding to avoid content touching screen edges */
+    }
+
+    /* Flowing Words Header */
+    .flowing-words {
+        font-size: 1em; /* Reduce font size for flowing words */
+        gap: 10px; /* Decrease gap between words */
+    }
+
+    /* Title Styling */
+    #title {
+        font-size: 2.5em; /* Scale down the title for smaller screens */
+        letter-spacing: 0.2em;
+    }
+
+    /* Globe Styling */
+    .globe-container {
+        margin: 10px 0;
+    }
+
+    .globe {
+        width: 80px;
+        height: 80px;
+    }
+
+    /* Subtitle and Enter Button */
+    #subtitle {
+        font-size: 1em; /* Adjust subtitle font size */
+    }
+
+    .enter-button {
+        padding: 10px 20px; /* Reduce padding for button */
+        font-size: 1em; /* Reduce button text size */
+    }
+
+    /* Spacing Adjustments */
+    .landing-page {
+        margin-top: 30px; /* Adjust spacing from the header */
+    }
+}
+
