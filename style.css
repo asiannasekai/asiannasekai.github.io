@@ -185,3 +185,26 @@ body, html {
     }
 }
 
+/* Blurb Styling */
+.hover-blurb {
+    position: absolute;
+    bottom: 20px;
+    font-size: 1em;
+    color: #fefefa;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    text-align: center;
+    width: 100%;
+    padding: 0 20px;
+}
+
+/* Show Blurb on Hover */
+.hover-title:hover + .globe-container + #subtitle + .enter-button + .hover-blurb {
+    opacity: 1;
+}
+
+/* Optional: Add styling to highlight the S E K A I title on hover */
+.hover-title:hover {
+    color: #f3a6c6; /* Light pink color on hover */
+    transition: color 0.3s ease;
+}
