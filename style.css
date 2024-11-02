@@ -165,8 +165,8 @@ body, html {
     }
 
     .globe {
-        width: 80px;
-        height: 80px;
+    width: 20vw; /* 20% of the viewport width */
+    max-width: 100px; /* Cap the maximum size */
     }
 
     /* Subtitle and Enter Button */
