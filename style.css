@@ -37,5 +37,71 @@ body, html {
 
 /* Bendy Wave Animation for Each Word */
 @keyframes bendyWave {
-    0%, 100% { transform: translateY(0); 
+    0%, 100% { transform: translateY(0); }
+    25% { transform: translateY(-10px) rotate(-5deg); }
+    50% { transform: translateY(0); }
+    75% { transform: translateY(10px) rotate(5deg); }
+}
+
+/* Flow Animation Across the Screen */
+@keyframes flow {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+/* SVG Globe and Other Elements Below */
+.globe-container {
+    margin: 20px 0;
+    opacity: 0;
+    animation: fadeInGlobe 2s 1s forwards;
+}
+
+.globe {
+    animation: spin 10s linear infinite;
+    fill: #fefefa; /* White color for globe elements */
+}
+
+#title {
+    font-size: 4em;
+    color: #fefefa; /* White for title text */
+}
+
+#subtitle {
+    color: #fefefa; /* White for subtitle text */
+}
+
+.enter-button {
+    background-color: #fefefa; /* White button */
+    color: #306030; /* Green text on button */
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 1.2em;
+    margin-top: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.enter-button:hover {
+    background-color: #306030;
+    color: #fefefa;
+    border: 2px solid #fefefa;
+}
+
+/* Fade In and Spin Animations */
+@keyframes fadeInGlobe {
+    to { opacity: 1; }
+}
+
+@keyframes fadeInText {
+    to { opacity: 1; }
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
 
