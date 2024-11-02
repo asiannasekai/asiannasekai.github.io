@@ -6,8 +6,8 @@ body, html {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #fefefa; /* Light background */
-    color: #306030; /* Dark text color */
+    background-color: #306030; /* Dark green background */
+    color: #fefefa; /* White text color */
     font-family: Arial, sans-serif;
 }
 
@@ -15,7 +15,7 @@ body, html {
 .header-container {
     width: 100%;
     overflow: hidden;
-    background-color: #306030; /* Dark background for header */
+    background-color: #306030; /* Match background color */
     padding: 10px 0;
     text-align: center;
 }
@@ -25,8 +25,8 @@ body, html {
     gap: 30px;
     font-size: 1.5em;
     font-weight: bold;
-    color: #fefefa; /* Light text color for flowing words */
-    white-space: wrap;
+    color: #fefefa; /* White text for flowing words */
+    white-space: nowrap;
     animation: flow 15s linear infinite;
 }
 
@@ -37,71 +37,5 @@ body, html {
 
 /* Bendy Wave Animation for Each Word */
 @keyframes bendyWave {
-    0%, 100% { transform: translateY(0); }
-    25% { transform: translateY(-10px) rotate(-5deg); }
-    50% { transform: translateY(0); }
-    75% { transform: translateY(10px) rotate(5deg); }
-}
-
-/* Flow Animation Across the Screen */
-@keyframes flow {
-    from {
-        transform: translateX(100%);
-    }
-    to {
-        transform: translateX(-100%);
-    }
-}
-
-/* SVG Globe and Other Elements Below */
-.globe-container {
-    margin: 20px 0;
-    opacity: 0;
-    animation: fadeInGlobe 2s 1s forwards;
-}
-
-.globe {
-    animation: spin 10s linear infinite;
-    fill: #306030; /* Dark color for globe elements */
-}
-
-#title {
-    font-size: 4em;
-    color: #306030;
-}
-
-#subtitle {
-    color: #306030;
-}
-
-.enter-button {
-    background-color: #306030;
-    color: #fefefa;
-    padding: 15px 30px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-size: 1.2em;
-    margin-top: 20px;
-    transition: background-color 0.3s;
-}
-
-.enter-button:hover {
-    background-color: #fefefa;
-    color: #306030;
-    border: 2px solid #306030;
-}
-
-/* Fade In and Spin Animations */
-@keyframes fadeInGlobe {
-    to { opacity: 1; }
-}
-
-@keyframes fadeInText {
-    to { opacity: 1; }
-}
-
-@keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
+    0%, 100% { transform: translateY(0); 
 
