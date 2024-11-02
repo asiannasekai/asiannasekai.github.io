@@ -33,7 +33,7 @@ body, html {
 
 .flowing-words span {
     display: inline-block;
-    animation: bendyWave 3s ease-in-out infinite;
+    animation: bendyWave 6s ease-in-out infinite;
 }
 
 /* Bendy Wave Animation for Each Word */
