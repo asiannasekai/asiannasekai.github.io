@@ -7,8 +7,8 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 const blogPosts = [
-    { title: "Analysis 1", date: "October 1, 2024", content: "Brief summary of analysis 1." },
-    { title: "Analysis 2", date: "October 15, 2024", content: "Brief summary of analysis 2." },
+    { title: "-", date: "-", content: "-" },
+    { title: "-", date: "-", content: "-" },
     // Add more posts as needed
 ];
 
