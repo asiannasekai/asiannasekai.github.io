@@ -6,26 +6,21 @@ body, html {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #306030; /* Dark green background */
-    color: #fefefa; /* White text */
+    background-color: #306030;
+    color: #fefefa;
     font-family: Arial, sans-serif;
-}
-
-/* Landing Page Layout */
-.landing-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    flex-direction: column; /* Ensures content stacks vertically */
 }
 
 /* Flowing Words Header */
 .header-container {
     width: 100%;
     overflow: hidden;
-    background-color: #306030; /* Match background color */
-    padding: 10px 0;
+    background-color: #306030;
     text-align: center;
+    position: absolute; /* Fixes header to the top */
+    top: 0;
+    padding: 20px 0;
 }
 
 .flowing-words {
@@ -33,7 +28,7 @@ body, html {
     gap: 30px;
     font-size: 1.5em;
     font-weight: bold;
-    color: #fefefa; /* White text for flowing words */
+    color: #fefefa;
     white-space: nowrap;
     animation: flow 15s linear infinite;
 }
@@ -61,12 +56,21 @@ body, html {
     }
 }
 
+/* Landing Page Content */
+.landing-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 100px; /* Adjust spacing from header */
+}
+
 /* Title Animation */
 #title {
     font-size: 4em;
     letter-spacing: 0.5em;
     opacity: 0;
-    color: #fefefa; /* White text */
+    color: #fefefa;
     animation: fadeInTitle 2s forwards;
 }
 
@@ -78,20 +82,20 @@ body, html {
 }
 
 .globe {
-    animation: spin 10s linear infinite; /* Slow spinning effect */
-    fill: #fefefa; /* White color for globe elements */
+    animation: spin 10s linear infinite;
+    fill: #fefefa;
 }
 
 /* Subtitle and Enter Button */
 #subtitle {
-    color: #fefefa; /* White for subtitle text */
+    color: #fefefa;
     opacity: 0;
     animation: fadeInText 2s 3s forwards;
 }
 
 .enter-button {
-    background-color: #fefefa; /* White button */
-    color: #306030; /* Green text */
+    background-color: #fefefa;
+    color: #306030;
     padding: 15px 30px;
     border-radius: 50px;
     text-decoration: none;
@@ -134,31 +138,4 @@ body, html {
     to {
         transform: rotate(360deg);
     }
-}
-
-/* Section and Card Styles (for other pages if needed) */
-section {
-    padding: 40px 20px;
-}
-
-.about, .projects, .blog, .contact {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.project-card {
-    background-color: #fefefa; /* White background for cards */
-    color: #306030; /* Dark green text for contrast */
-    padding: 20px;
-    margin: 10px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #306030; /* Dark green background */
-    color: #fefefa; /* White text */
 }
