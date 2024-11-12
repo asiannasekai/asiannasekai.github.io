@@ -258,20 +258,37 @@ body, html {
 }
 
 /* Morphing Shape Animation */
-/* Mercury Shape Styling */
+/* Mercury Shape Styling with Additional Effects */
 .shape {
     position: absolute;
     width: 100px; /* Starting size; JavaScript will randomize */
     height: 100px;
-    background: radial-gradient(circle at 30% 30%, #e0e0e0, #a8a8a8, #808080);
+    background: radial-gradient(circle at 30% 30%, #f0f0f0, #bcbcbc, #707070);
     border-radius: 50%;
-    box-shadow: inset -10px -10px 20px rgba(255, 255, 255, 0.5),
-                inset 10px 10px 20px rgba(0, 0, 0, 0.2),
-                0px 0px 20px rgba(255, 255, 255, 0.3);
-    filter: blur(1px) contrast(1.2);
+    box-shadow: 
+        inset -10px -10px 20px rgba(255, 255, 255, 0.7), /* Highlight */
+        inset 10px 10px 20px rgba(0, 0, 0, 0.3),        /* Inner shadow */
+        5px 5px 15px rgba(0, 0, 0, 0.2),               /* Outer shadow */
+        -5px -5px 15px rgba(255, 255, 255, 0.3);       /* Soft outer highlight */
+    filter: blur(1px) contrast(1.1);
     transform-style: preserve-3d;
     animation: morph 8s infinite ease-in-out, float 10s infinite ease-in-out alternate;
     transition: transform 1s ease, background-color 1.5s ease;
+}
+
+/* Reflection Effect */
+.shape::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.5), transparent);
+    border-radius: inherit;
+    transform: rotate(-20deg);
+    opacity: 0.5;
+    pointer-events: none; /* Ensures reflection doesn’t interfere with interactivity */
 }
 
 /* Morphing Animation */
@@ -305,6 +322,7 @@ body, html {
     75% { transform: translate(-50px, 60px) rotate(10deg); }
     100% { transform: translate(0, 0); }
 }
+
 
 
 
