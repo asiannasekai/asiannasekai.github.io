@@ -5,7 +5,6 @@ body, html {
     padding: 0;
     height: 100%;
     width: 100%; /* Ensure full viewport width */
-    background-color: #306030;
     color: #fefefa;
     font-family: Arial, sans-serif;
 }
@@ -19,7 +18,6 @@ body, html {
     min-height: 100vh;
     z-index: 2; /* Place above the backdrop */
 }
-
 /* Flowing Words Header */
 .header-container {
     width: 100%;
@@ -29,6 +27,7 @@ body, html {
     position: relative;
     z-index: 1; /* Ensures it is above the backdrop */
 }
+
 
 .flowing-words {
     display: inline-flex;
