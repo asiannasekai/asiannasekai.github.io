@@ -229,19 +229,19 @@ body, html {
 /* Flowing Background Animation */
 @keyframes colorFlow {
     0% {
-        background-color: #306030; /* Dark green */
+        background-color: #306030; /* Starting color */
     }
     25% {
-        background-color: #D8F3DC; /* Light green */
+        background-color: #6A994E; /* Intermediate green */
     }
     50% {
-        background-color: #304B60; /* Blue */
+        background-color: #A7C957; /* Light green */
     }
     75% {
-        background-color: #FFD6A5; /* Complementary light orange */
+        background-color: #FFB703; /* Complementary yellow-orange */
     }
     100% {
-        background-color: #306030; /* Return to dark green */
+        background-color: #306030; /* Back to starting color */
     }
 }
 
@@ -254,7 +254,7 @@ body, html {
     height: 100vh;
     overflow: hidden;
     z-index: -1;
-    animation: colorFlow 13s infinite ease-in-out; /* 20 seconds for a smooth transition */
+    animation: colorFlow 20s infinite ease-in-out;
 }
 
 
