@@ -77,9 +77,7 @@ for (let i = 0; i < numShapes; i++) {
     shape.style.width = `${size}px`;
     shape.style.height = `${size}px`;
 
-    // Set random position, ensuring it doesn't overlap the center
-    shape.style.top = `${getRandomIntExcluding(0, 100, 45, 55)}vh`;
-    shape.style.left = `${getRandomIntExcluding(0, 100, 45, 55)}vw`;
+
 
     // Set random color
     setRandomColor(shape);
