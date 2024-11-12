@@ -74,7 +74,7 @@ for (let i = 0; i < numShapes; i++) {
     shape.classList.add('shape');
     
     // Set random size
-    const size = getRandomInt(50, 100);
+    const size = getRandomInt(30, 100);
     shape.style.width = `${size}px`;
     shape.style.height = `${size}px`;
 
