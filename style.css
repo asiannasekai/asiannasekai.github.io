@@ -4,9 +4,10 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    width: 100%; /* Ensure full viewport width */
+    /*width: 100%; /* Ensure full viewport width */
     color: #fefefa;
     font-family: Arial, sans-serif;
+    overflow: hidden;
 }
 
 /* Container for central page content */
@@ -253,9 +254,37 @@ body, html {
     left: 0;
     width: 100vw;
     height: 100vh;
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4, #fcb69f, #ff9a9e);
+    background-size: 200% 200%;
+    animation: rainbowBackground 15s ease infinite;
     z-index: -1;
-    animation: colorFlow 20s infinite ease-in-out;
 }
+
+@keyframes rainbowBackground {
+    0% {
+        background-position: 0% 50%;
+        background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4, #fcb69f, #ff9a9e);
+    }
+    25% {
+        background-position: 50% 50%;
+        background: linear-gradient(45deg, #fcb69f, #ff9a9e, #fad0c4, #a1c4fd, #c2e9fb);
+    }
+    50% {
+        background-position: 100% 50%;
+        background: linear-gradient(45deg, #a1c4fd, #c2e9fb, #d4fc79, #96e6a1, #fcb69f);
+    }
+    75% {
+        background-position: 50% 50%;
+        background: linear-gradient(45deg, #d4fc79, #96e6a1, #f9f9b6, #ffecd2, #a1c4fd);
+    }
+    100% {
+        background-position: 0% 50%;
+        background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4, #fcb69f, #ff9a9e);
+    }
+}
+
+
+
 
 /* Morphing Shape Animation */
 /* Mercury Shape Styling with Additional Effects */
