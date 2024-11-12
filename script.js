@@ -31,10 +31,7 @@ document.getElementById("contact-form").addEventListener("submit", function(even
     alert("Thank you for reaching out!");
     this.reset();
 });
-document.getElementById('enterButton').addEventListener('click', function(event) {
-    event.preventDefault();
-    window.location.href = 'index.html';
-});
+
 
 let blurbTimeout;
 
