@@ -238,15 +238,15 @@ body, html {
 
 
 /* Random Background Color Animation */
+/* Flowing Background Animation */
 @keyframes colorFlow {
-    0% { background-color: #306030; }
-    25% { background-color: #6A994E; }
-    50% { background-color: #A7C957; }
-    75% { background-color: #FFB703; }
-    100% { background-color: #306030; }
+    0% { background-color: #f3dcb6; } /* Light beige */
+    25% { background-color: #d5bda6; } /* Soft brown */
+    50% { background-color: #a3a9d7; } /* Light lavender blue */
+    75% { background-color: #d7a3b3; } /* Soft pink */
+    100% { background-color: #f3dcb6; } /* Return to light beige */
 }
 
-/* Apply the colorFlow animation to the backdrop */
 .backdrop {
     position: fixed;
     top: 0;
@@ -257,64 +257,23 @@ body, html {
     animation: colorFlow 20s infinite ease-in-out;
 }
 
-/* Individual Shape Color Animations */
-@keyframes shapeColor1 {
-    0%, 100% { background-color: #FFD700; }
-    50% { background-color: #FF5733; }
-}
-@keyframes shapeColor2 {
-    0%, 100% { background-color: #4682B4; }
-    50% { background-color: #FFC300; }
-}
-@keyframes shapeColor3 {
-    0%, 100% { background-color: #32CD32; }
-    50% { background-color: #FFB703; }
-}
-/* Repeat for as many shapes as needed */
-
-/* Randomized Dynamic Movement for Shapes */
-@keyframes move1 {
-    0% { transform: translate(0, 0); }
-    25% { transform: translate(-60px, 40px) rotate(15deg); }
-    50% { transform: translate(100px, -100px) rotate(-10deg); }
-    75% { transform: translate(-50px, 60px) rotate(20deg); }
-    100% { transform: translate(0, 0); }
-}
-
-@keyframes move2 {
-    0% { transform: translate(0, 0); }
-    25% { transform: translate(80px, -50px) rotate(-20deg); }
-    50% { transform: translate(-100px, 100px) rotate(10deg); }
-    75% { transform: translate(50px, -60px) rotate(-15deg); }
-    100% { transform: translate(0, 0); }
-}
-/* Define more unique move animations as needed */
-
 /* Shape Styling */
 .shape {
     position: absolute;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    animation-duration: 10s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
+    transition: background-color 2s ease;
+    animation: float 10s infinite ease-in-out alternate;
 }
 
-/* Assign each shape a unique color and movement animation */
-.shape:nth-child(1) {
-    animation: move1 12s infinite ease-in-out, shapeColor1 15s infinite;
+/* Float Animation with Randomized Paths */
+@keyframes float {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(-80px, 60px) rotate(10deg); }
+    50% { transform: translate(120px, -100px) rotate(-15deg); }
+    75% { transform: translate(-100px, 80px) rotate(20deg); }
+    100% { transform: translate(0, 0); }
 }
-.shape:nth-child(2) {
-    animation: move2 10s infinite ease-in-out, shapeColor2 20s infinite;
-}
-.shape:nth-child(3) {
-    animation: move1 18s infinite ease-in-out, shapeColor3 18s infinite;
-}
-.shape:nth-child(4) {
-    animation: move2 14s infinite ease-in-out, shapeColor1 22s infinite;
-}
-.shape:nth-child(5) {
-    animation: move1 16s infinite ease-in-out, shapeColor2 25s infinite;
-}
+
 
