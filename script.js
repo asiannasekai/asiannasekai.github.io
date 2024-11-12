@@ -54,4 +54,64 @@ function toggleBlurb() {
     }, 10000); // 10,000 milliseconds = 10 seconds
 }
 
+// Configuration
+const numShapes = 20; // Number of shapes to generate
+const audioFiles = [
+    'audio1.mp3',
+    'audio2.mp3',
+    'audio3.mp3'
+    // Add more audio files if needed
+];
+
+// Helper function to generate a random integer between min and max
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+// Helper function to generate random color
+function getRandomColor() {
+    const colors = ['#FF6347', '#4682B4', '#FFD700', '#32CD32', '#6A5ACD'];
+    return colors[Math.floor(Math.random() * colors.length)];
+}
+
+// Get the backdrop element
+const backdrop = document.querySelector('.backdrop');
+
+// Generate shapes
+for (let i = 0; i < numShapes; i++) {
+    const shape = document.createElement('div');
+    shape.classList.add('shape');
+    
+    // Set random size and position
+    const size = getRandomInt(30, 100);
+    shape.style.width = `${size}px`;
+    shape.style.height = `${size}px`;
+    shape.style.top = `${getRandomInt(0, 100)}vh`;
+    shape.style.left = `${getRandomInt(0, 100)}vw`;
+
+    // Set random shape (circle, square, etc.)
+    shape.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+    
+    // Set random color
+    shape.style.backgroundColor = getRandomColor();
+    
+    // Assign a random audio file
+    const audioFile = audioFiles[i % audioFiles.length];
+    shape.setAttribute('data-audio', audioFile);
+    
+    // Add hover event to play audio
+    const audio = new Audio(audioFile);
+    shape.addEventListener('mouseenter', () => {
+        audio.currentTime = 0;
+        audio.play();
+    });
+    shape.addEventListener('mouseleave', () => {
+        audio.pause();
+    });
+
+    // Add the shape to the backdrop
+    backdrop.appendChild(shape);
+}
+
+
 
