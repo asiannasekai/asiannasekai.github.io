@@ -66,25 +66,31 @@ function getRandomColor() {
     return colors[Math.floor(Math.random() * colors.length)];
 }
 
+// Get the backdrop element
 const backdrop = document.querySelector('.backdrop');
-if (backdrop) {
-    for (let i = 0; i < numShapes; i++) {
-        const shape = document.createElement('div');
-        shape.classList.add('shape');
-        
-        const size = getRandomInt(30, 100);
-        shape.style.width = `${size}px`;
-        shape.style.height = `${size}px`;
-        shape.style.top = `${getRandomInt(0, 100)}vh`;
-        shape.style.left = `${getRandomInt(0, 100)}vw`;
-        shape.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
-        shape.style.backgroundColor = getRandomColor();
-        
-        backdrop.appendChild(shape);
-    }
-shape.style.top = `${getRandomInt(20, 100)}vh`; // Avoids placing shapes too high
 
+// Generate shapes
+for (let i = 0; i < numShapes; i++) {
+    const shape = document.createElement('div');
+    shape.classList.add('shape');
+    
+    // Set random size and position across the full screen
+    const size = getRandomInt(30, 100);
+    shape.style.width = `${size}px`;
+    shape.style.height = `${size}px`;
+    shape.style.top = `${getRandomInt(0, 100)}vh`; // Covers full height
+    shape.style.left = `${getRandomInt(0, 100)}vw`; // Covers full width
+
+    // Set random shape (circle, square, etc.)
+    shape.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+    
+    // Set random color
+    shape.style.backgroundColor = getRandomColor();
+    
+    // Add the shape to the backdrop
+    backdrop.appendChild(shape);
 }
+
 
 
 
