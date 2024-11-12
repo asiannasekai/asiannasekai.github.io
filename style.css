@@ -218,3 +218,31 @@ body, html {
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
+
+/* Backdrop Styling */
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1;
+    background-color: #306030; /* Background color */
+}
+
+/* Shape Styling */
+.shape {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.5);
+    animation: float 10s infinite ease-in-out;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Float Animation */
+@keyframes float {
+    0% { transform: translateY(0) translateX(0); }
+    50% { transform: translateY(-100px) translateX(100px); }
+    100% { transform: translateY(0) translateX(0); }
+}
+
