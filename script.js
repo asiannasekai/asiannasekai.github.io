@@ -56,12 +56,6 @@ function toggleBlurb() {
 
 // Configuration
 const numShapes = 20; // Number of shapes to generate
-const audioFiles = [
-    'audio1.mp3',
-    'audio2.mp3',
-    'audio3.mp3'
-    // Add more audio files if needed
-];
 
 // Helper function to generate a random integer between min and max
 function getRandomInt(min, max) {
@@ -95,20 +89,6 @@ for (let i = 0; i < numShapes; i++) {
     // Set random color
     shape.style.backgroundColor = getRandomColor();
     
-    // Assign a random audio file
-    const audioFile = audioFiles[i % audioFiles.length];
-    shape.setAttribute('data-audio', audioFile);
-    
-    // Add hover event to play audio
-    const audio = new Audio(audioFile);
-    shape.addEventListener('mouseenter', () => {
-        audio.currentTime = 0;
-        audio.play();
-    });
-    shape.addEventListener('mouseleave', () => {
-        audio.pause();
-    });
-
     // Add the shape to the backdrop
     backdrop.appendChild(shape);
 }
