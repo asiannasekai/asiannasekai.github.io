@@ -44,16 +44,17 @@
         </div>
         <p id="subtitle">data, knowledge, + innovation</p>
         <a href="index.html" class="enter-button" id="enterButton">under construction</a>
+        <script>
+             document.getElementById("enterButton").addEventListener("click", function() {
+             window.location.href = "index.html";
+             });
+        </script>
         <div class="hover-blurb">"Sekai" is my middle name and means "world" in Japanese. I find that it reflects my boundless curiosity + drive to understand and connect with the world.</div>
     </div>
 
     <script src="script.js"></script>
-    <script>
-    document.getElementById('enterButton').addEventListener('click', function(event) {
-        event.preventDefault();
-        window.location.href = 'index.html';
-    });
-    </script>
+
+    
 </body>
 </html>
 
