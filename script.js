@@ -69,7 +69,6 @@ function getRandomColor() {
 // Get the backdrop element
 const backdrop = document.querySelector('.backdrop');
 
-// Generate shapes
 for (let i = 0; i < numShapes; i++) {
     const shape = document.createElement('div');
     shape.classList.add('shape');
@@ -81,30 +80,26 @@ for (let i = 0; i < numShapes; i++) {
     shape.style.top = `${getRandomInt(0, 100)}vh`; // Covers full height
     shape.style.left = `${getRandomInt(0, 100)}vw`; // Covers full width
 
-    // Set random shape (circle, square, etc.)
+    // Set random shape (circle or square)
     shape.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
     
-    // Set random color
-    shape.style.backgroundColor = getRandomColor();
+    // Initially set a random color
+    setRandomColor(shape);
     
     // Add the shape to the backdrop
     backdrop.appendChild(shape);
+
+    // Set an interval to change the color every 3-5 seconds
+    setInterval(() => {
+        setRandomColor(shape);
+    }, getRandomInt(3000, 5000)); // Random interval between 3 and 5 seconds
 }
 
-// JavaScript to randomly assign colors and animations
-document.querySelectorAll('.shape').forEach((shape, index) => {
-    // Generate random color animation class
-    const colorAnimation = `shapeColor${Math.floor(Math.random() * 3) + 1}`; // e.g., shapeColor1, shapeColor2, etc.
-    const moveAnimation = `move${Math.floor(Math.random() * 2) + 1}`; // e.g., move1, move2
-
-    // Random animation duration between 10s and 20s
-    const animationDuration = `${Math.floor(Math.random() * 10) + 10}s`;
-
-    // Apply random animations to each shape
-    shape.style.animation = `${moveAnimation} ${animationDuration} infinite ease-in-out, ${colorAnimation} ${animationDuration} infinite`;
-});
-
-
+// Function to set a random color from the palette to a shape
+function setRandomColor(shape) {
+    const randomColor = colorPalette[Math.floor(Math.random() * colorPalette.length)];
+    shape.style.backgroundColor = randomColor;
+}
 
 
 
