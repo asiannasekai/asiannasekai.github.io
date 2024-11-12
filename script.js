@@ -57,8 +57,8 @@ function toggleBlurb() {
 
 
 // Define the number of shapes and color palette
-const numShapes = 15;
-//const colorPalette = ["#E6A157", "#D9BF77", "#B5C1D8", "#A7C957", "#D7A3B3", "#F4BFBF", "#C9D6EA", "#FFD6A5"];
+// Define the number of shapes
+const numShapes = 15; // Adjust the number of shapes as desired
 
 // Helper function to generate a random integer between min and max
 function getRandomInt(min, max) {
@@ -73,31 +73,18 @@ for (let i = 0; i < numShapes; i++) {
     const shape = document.createElement('div');
     shape.classList.add('shape');
     
-    // Set random size
-    const size = getRandomInt(30, 100);
+    // Set random size between 50px and 150px
+    const size = getRandomInt(50, 150);
     shape.style.width = `${size}px`;
     shape.style.height = `${size}px`;
 
-    // Set random position across the entire screen (temporarily removing exclusion)
-    shape.style.top = `${getRandomInt(0, 100)}vh`;
-    shape.style.left = `${getRandomInt(0, 100)}vw`;
-
-    // Set random color
-    setRandomColor(shape);
+    // Set random position within the viewport
+    shape.style.top = `${getRandomInt(0, 90)}vh`;
+    shape.style.left = `${getRandomInt(0, 90)}vw`;
 
     // Add the shape to the backdrop
     backdrop.appendChild(shape);
-
-    // Set an interval to change the color every 3-5 seconds
-    setInterval(() => {
-        setRandomColor(shape);
-    }, getRandomInt(3000, 5000));
 }
 
-// Function to set a random color from the palette to a shape
-function setRandomColor(shape) {
-    const randomColor = colorPalette[Math.floor(Math.random() * colorPalette.length)];
-    shape.style.backgroundColor = randomColor;
-}
 
 
