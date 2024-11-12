@@ -258,6 +258,7 @@ body, html {
 }
 
 /* Morphing Shape Animation */
+/* Morphing Shape Animation */
 @keyframes morph {
     0% {
         border-radius: 50%;
@@ -284,14 +285,14 @@ body, html {
 /* Shape Styling */
 .shape {
     position: absolute;
-    width: 80px; /* You can set random sizes in JavaScript if needed */
+    width: 80px;
     height: 80px;
-    background-color: rgba(255, 255, 255, 0.5); /* Placeholder color */
+    z-index: 1; /* Ensure shapes appear above background */
     animation: morph 8s infinite ease-in-out, float 10s infinite ease-in-out alternate;
     transition: background-color 2s ease;
 }
 
-/* Float Animation to Move Shapes */
+/* Float Animation for Movement */
 @keyframes float {
     0% { transform: translate(0, 0); }
     25% { transform: translate(-60px, 50px) rotate(10deg); }
@@ -299,6 +300,7 @@ body, html {
     75% { transform: translate(-50px, 60px) rotate(15deg); }
     100% { transform: translate(0, 0); }
 }
+
 
 
 
