@@ -258,48 +258,54 @@ body, html {
 }
 
 /* Morphing Shape Animation */
-/* Morphing Shape Animation */
-@keyframes morph {
-    0% {
-        border-radius: 50%;
-        transform: scale(1) rotate(0deg);
-    }
-    25% {
-        border-radius: 40% 60% 60% 40%;
-        transform: scale(1.2) rotate(10deg);
-    }
-    50% {
-        border-radius: 60% 40% 50% 50%;
-        transform: scale(0.8) rotate(-15deg);
-    }
-    75% {
-        border-radius: 50% 50% 40% 60%;
-        transform: scale(1.1) rotate(5deg) skew(5deg, 5deg);
-    }
-    100% {
-        border-radius: 50%;
-        transform: scale(1) rotate(0deg);
-    }
-}
-
-/* Shape Styling */
+/* Mercury Shape Styling */
 .shape {
     position: absolute;
-    width: 80px;
-    height: 80px;
-    z-index: 1; /* Ensure shapes appear above background */
+    width: 100px; /* Starting size; JavaScript will randomize */
+    height: 100px;
+    background: radial-gradient(circle at 30% 30%, #e0e0e0, #a8a8a8, #808080);
+    border-radius: 50%;
+    box-shadow: inset -10px -10px 20px rgba(255, 255, 255, 0.5),
+                inset 10px 10px 20px rgba(0, 0, 0, 0.2),
+                0px 0px 20px rgba(255, 255, 255, 0.3);
+    filter: blur(1px) contrast(1.2);
+    transform-style: preserve-3d;
     animation: morph 8s infinite ease-in-out, float 10s infinite ease-in-out alternate;
-    transition: background-color 2s ease;
+    transition: transform 1s ease, background-color 1.5s ease;
+}
+
+/* Morphing Animation */
+@keyframes morph {
+    0% {
+        transform: scale(1) rotateY(0deg) rotateX(0deg);
+    }
+    25% {
+        transform: scale(1.1) rotateY(20deg) rotateX(10deg);
+        border-radius: 40% 60% 60% 40%;
+    }
+    50% {
+        transform: scale(1) rotateY(-20deg) rotateX(-10deg);
+        border-radius: 60% 40% 50% 50%;
+    }
+    75% {
+        transform: scale(1.1) rotateY(10deg) rotateX(20deg);
+        border-radius: 50% 50% 40% 60%;
+    }
+    100% {
+        transform: scale(1) rotateY(0deg) rotateX(0deg);
+        border-radius: 50%;
+    }
 }
 
 /* Float Animation for Movement */
 @keyframes float {
     0% { transform: translate(0, 0); }
-    25% { transform: translate(-60px, 50px) rotate(10deg); }
-    50% { transform: translate(80px, -80px) rotate(-10deg); }
-    75% { transform: translate(-50px, 60px) rotate(15deg); }
+    25% { transform: translate(-60px, 50px) rotate(5deg); }
+    50% { transform: translate(80px, -80px) rotate(-5deg); }
+    75% { transform: translate(-50px, 60px) rotate(10deg); }
     100% { transform: translate(0, 0); }
 }
+
 
 
 
