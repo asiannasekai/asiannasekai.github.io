@@ -57,8 +57,8 @@ function toggleBlurb() {
 
 
 // Define the number of shapes and color palette
-const numShapes = 20;
-const colorPalette = ["#E6A157", "#D9BF77", "#B5C1D8", "#A7C957", "#D7A3B3", "#F4BFBF", "#C9D6EA", "#FFD6A5"];
+const numShapes = 15;
+//const colorPalette = ["#E6A157", "#D9BF77", "#B5C1D8", "#A7C957", "#D7A3B3", "#F4BFBF", "#C9D6EA", "#FFD6A5"];
 
 // Helper function to generate a random integer between min and max
 function getRandomInt(min, max) {
