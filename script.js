@@ -91,6 +91,19 @@ for (let i = 0; i < numShapes; i++) {
     backdrop.appendChild(shape);
 }
 
+// JavaScript to randomly assign colors and animations
+document.querySelectorAll('.shape').forEach((shape, index) => {
+    // Generate random color animation class
+    const colorAnimation = `shapeColor${Math.floor(Math.random() * 3) + 1}`; // e.g., shapeColor1, shapeColor2, etc.
+    const moveAnimation = `move${Math.floor(Math.random() * 2) + 1}`; // e.g., move1, move2
+
+    // Random animation duration between 10s and 20s
+    const animationDuration = `${Math.floor(Math.random() * 10) + 10}s`;
+
+    // Apply random animations to each shape
+    shape.style.animation = `${moveAnimation} ${animationDuration} infinite ease-in-out, ${colorAnimation} ${animationDuration} infinite`;
+});
+
 
 
 
