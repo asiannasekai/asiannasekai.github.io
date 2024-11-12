@@ -234,55 +234,61 @@ body, html {
 }
 
 
-/* Flowing Background Animation */
+
+
+
+/* Random Background Color Animation */
 @keyframes colorFlow {
-    0% {
-        background-color: #306030; /* Dark green */
-    }
-    25% {
-        background-color: #6A994E; /* Intermediate green */
-    }
-    50% {
-        background-color: #A7C957; /* Light green */
-    }
-    75% {
-        background-color: #FFB703; /* Complementary yellow-orange */
-    }
-    100% {
-        background-color: #306030; /* Return to dark green */
-    }
+    0% { background-color: #306030; }
+    25% { background-color: #6A994E; }
+    50% { background-color: #A7C957; }
+    75% { background-color: #FFB703; }
+    100% { background-color: #306030; }
 }
 
-/* Apply the background animation to the backdrop */
+/* Apply the colorFlow animation to the backdrop */
 .backdrop {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    overflow: hidden;
     z-index: -1;
     animation: colorFlow 20s infinite ease-in-out;
 }
 
-/* Shape Color Animation Syncing with Background */
-@keyframes shapeColorFlow {
-    0% {
-        background-color: #FFD700; /* Complement to dark green */
-    }
-    25% {
-        background-color: #FFC300; /* Complement to intermediate green */
-    }
-    50% {
-        background-color: #FF5733; /* Complement to light green */
-    }
-    75% {
-        background-color: #C70039; /* Complement to yellow-orange */
-    }
-    100% {
-        background-color: #FFD700; /* Return to complement of dark green */
-    }
+/* Individual Shape Color Animations */
+@keyframes shapeColor1 {
+    0%, 100% { background-color: #FFD700; }
+    50% { background-color: #FF5733; }
 }
+@keyframes shapeColor2 {
+    0%, 100% { background-color: #4682B4; }
+    50% { background-color: #FFC300; }
+}
+@keyframes shapeColor3 {
+    0%, 100% { background-color: #32CD32; }
+    50% { background-color: #FFB703; }
+}
+/* Repeat for as many shapes as needed */
+
+/* Randomized Dynamic Movement for Shapes */
+@keyframes move1 {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(-60px, 40px) rotate(15deg); }
+    50% { transform: translate(100px, -100px) rotate(-10deg); }
+    75% { transform: translate(-50px, 60px) rotate(20deg); }
+    100% { transform: translate(0, 0); }
+}
+
+@keyframes move2 {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(80px, -50px) rotate(-20deg); }
+    50% { transform: translate(-100px, 100px) rotate(10deg); }
+    75% { transform: translate(50px, -60px) rotate(-15deg); }
+    100% { transform: translate(0, 0); }
+}
+/* Define more unique move animations as needed */
 
 /* Shape Styling */
 .shape {
@@ -290,22 +296,25 @@ body, html {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    animation: float 10s infinite ease-in-out alternate, shapeColorFlow 20s infinite ease-in-out;
-    transition: transform 0.3s ease, background-color 0.3s ease;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
 }
 
-/* Different shapes with different sizes and colors */
-.shape:nth-child(1) { width: 50px; height: 50px; }
-.shape:nth-child(2) { width: 70px; height: 70px; }
-.shape:nth-child(3) { width: 60px; height: 60px; border-radius: 0; } /* Square */
-.shape:nth-child(4) { width: 80px; height: 80px; }
-.shape:nth-child(5) { width: 90px; height: 90px; }
-
-/* Dynamic Float Animation */
-@keyframes float {
-    0% { transform: translate(0, 0); }
-    25% { transform: translate(-50px, 80px) rotate(20deg); }
-    50% { transform: translate(100px, -100px) rotate(-20deg); }
-    75% { transform: translate(-70px, 60px) rotate(10deg); }
-    100% { transform: translate(120px, -80px) rotate(-15deg); }
+/* Assign each shape a unique color and movement animation */
+.shape:nth-child(1) {
+    animation: move1 12s infinite ease-in-out, shapeColor1 15s infinite;
 }
+.shape:nth-child(2) {
+    animation: move2 10s infinite ease-in-out, shapeColor2 20s infinite;
+}
+.shape:nth-child(3) {
+    animation: move1 18s infinite ease-in-out, shapeColor3 18s infinite;
+}
+.shape:nth-child(4) {
+    animation: move2 14s infinite ease-in-out, shapeColor1 22s infinite;
+}
+.shape:nth-child(5) {
+    animation: move1 16s infinite ease-in-out, shapeColor2 25s infinite;
+}
+
