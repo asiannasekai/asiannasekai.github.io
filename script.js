@@ -56,29 +56,35 @@ function toggleBlurb() {
 }
 
 // Generate Random Shapes
-const numShapes = 20;
-function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+// Define the number of shapes and color palette
+const numShapes = 20; // Adjust the number of shapes as desired
+const colorPalette = ["#E6A157", "#D9BF77", "#B5C1D8", "#A7C957", "#D7A3B3", "#F4BFBF", "#C9D6EA", "#FFD6A5"];
 
-function getRandomColor() {
-    const colors = ['#FF6347', '#4682B4', '#FFD700', '#32CD32', '#6A5ACD'];
-    return colors[Math.floor(Math.random() * colors.length)];
+// Helper function to generate a random integer between min and max, excluding a specific range
+function getRandomIntExcluding(min, max, excludeMin, excludeMax) {
+    let random;
+    do {
+        random = Math.floor(Math.random() * (max - min + 1)) + min;
+    } while (random >= excludeMin && random <= excludeMax);
+    return random;
 }
 
 // Get the backdrop element
 const backdrop = document.querySelector('.backdrop');
 
+// Generate shapes with random properties
 for (let i = 0; i < numShapes; i++) {
     const shape = document.createElement('div');
     shape.classList.add('shape');
     
-    // Set random size and position across the full screen
+    // Set random size
     const size = getRandomInt(30, 100);
     shape.style.width = `${size}px`;
     shape.style.height = `${size}px`;
-    shape.style.top = `${getRandomInt(0, 100)}vh`; // Covers full height
-    shape.style.left = `${getRandomInt(0, 100)}vw`; // Covers full width
+
+    // Set random position outside the central area
+    shape.style.top = `${getRandomIntExcluding(0, 100, 40, 60)}vh`; // Avoid middle 40%-60% of height
+    shape.style.left = `${getRandomIntExcluding(0, 100, 40, 60)}vw`; // Avoid middle 40%-60% of width
 
     // Set random shape (circle or square)
     shape.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
@@ -100,6 +106,4 @@ function setRandomColor(shape) {
     const randomColor = colorPalette[Math.floor(Math.random() * colorPalette.length)];
     shape.style.backgroundColor = randomColor;
 }
-
-
 
