@@ -55,19 +55,7 @@ function toggleBlurb() {
     }, 10000);
 }
 
-// Define the number of shapes and color palette
-const numShapes = 20;
-const colorPalette = ["#E6A157", "#D9BF77", "#B5C1D8", "#A7C957", "#D7A3B3", "#F4BFBF", "#C9D6EA", "#FFD6A5"];
 
-// Helper function to generate a random integer between min and max
-function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-// Get the backdrop element
-const backdrop = document.querySelector('.backdrop');
-
-// Generate shapes with random properties
 // Define the number of shapes and color palette
 const numShapes = 20;
 const colorPalette = ["#E6A157", "#D9BF77", "#B5C1D8", "#A7C957", "#D7A3B3", "#F4BFBF", "#C9D6EA", "#FFD6A5"];
