@@ -1,22 +1,31 @@
 /* General Landing Page Styling */
+/* Reset body and html */
 body, html {
     margin: 0;
     padding: 0;
     height: 100%;
+    width: 100%; /* Ensure full viewport width */
     background-color: #306030;
     color: #fefefa;
     font-family: Arial, sans-serif;
+}
+
+/* Container for central page content */
+.page-content {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
+    min-height: 100vh;
+    z-index: 2; /* Place above the backdrop */
 }
 
 /* Flowing Words Header */
 .header-container {
     width: 100%;
-    background-color: #306030;
     padding: 20px 0;
     text-align: center;
+    background-color: transparent; /* Make it transparent to see animated backdrop */
     position: relative;
     z-index: 1; /* Ensures it is above the backdrop */
 }
