@@ -82,6 +82,8 @@ if (backdrop) {
         
         backdrop.appendChild(shape);
     }
+shape.style.top = `${getRandomInt(20, 100)}vh`; // Avoids placing shapes too high
+
 }
 
 
