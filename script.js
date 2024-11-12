@@ -56,17 +56,12 @@ function toggleBlurb() {
 }
 
 // Generate Random Shapes
-// Define the number of shapes and color palette
-const numShapes = 20; // Adjust the number of shapes as desired
+const numShapes = 20;
 const colorPalette = ["#E6A157", "#D9BF77", "#B5C1D8", "#A7C957", "#D7A3B3", "#F4BFBF", "#C9D6EA", "#FFD6A5"];
 
-// Helper function to generate a random integer between min and max, excluding a specific range
-function getRandomIntExcluding(min, max, excludeMin, excludeMax) {
-    let random;
-    do {
-        random = Math.floor(Math.random() * (max - min + 1)) + min;
-    } while (random >= excludeMin && random <= excludeMax);
-    return random;
+// Helper function to generate a random integer between min and max
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 // Get the backdrop element
@@ -78,20 +73,17 @@ for (let i = 0; i < numShapes; i++) {
     shape.classList.add('shape');
     
     // Set random size
-    const size = getRandomInt(30, 100);
+    const size = getRandomInt(50, 100);
     shape.style.width = `${size}px`;
     shape.style.height = `${size}px`;
 
-    // Set random position outside the central area
-    shape.style.top = `${getRandomIntExcluding(0, 100, 40, 60)}vh`; // Avoid middle 40%-60% of height
-    shape.style.left = `${getRandomIntExcluding(0, 100, 40, 60)}vw`; // Avoid middle 40%-60% of width
+    // Set random position, ensuring it doesn't overlap the center
+    shape.style.top = `${getRandomIntExcluding(0, 100, 45, 55)}vh`;
+    shape.style.left = `${getRandomIntExcluding(0, 100, 45, 55)}vw`;
 
-    // Set random shape (circle or square)
-    shape.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
-    
-    // Initially set a random color
+    // Set random color
     setRandomColor(shape);
-    
+
     // Add the shape to the backdrop
     backdrop.appendChild(shape);
 
@@ -106,4 +98,14 @@ function setRandomColor(shape) {
     const randomColor = colorPalette[Math.floor(Math.random() * colorPalette.length)];
     shape.style.backgroundColor = randomColor;
 }
+
+// Helper function to generate a random integer, excluding a specified range
+function getRandomIntExcluding(min, max, excludeMin, excludeMax) {
+    let random;
+    do {
+        random = Math.floor(Math.random() * (max - min + 1)) + min;
+    } while (random >= excludeMin && random <= excludeMax);
+    return random;
+}
+
 
