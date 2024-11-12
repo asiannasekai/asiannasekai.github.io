@@ -55,7 +55,20 @@ function toggleBlurb() {
     }, 10000);
 }
 
-// Generate Random Shapes
+// Define the number of shapes and color palette
+const numShapes = 20;
+const colorPalette = ["#E6A157", "#D9BF77", "#B5C1D8", "#A7C957", "#D7A3B3", "#F4BFBF", "#C9D6EA", "#FFD6A5"];
+
+// Helper function to generate a random integer between min and max
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+// Get the backdrop element
+const backdrop = document.querySelector('.backdrop');
+
+// Generate shapes with random properties
+// Define the number of shapes and color palette
 const numShapes = 20;
 const colorPalette = ["#E6A157", "#D9BF77", "#B5C1D8", "#A7C957", "#D7A3B3", "#F4BFBF", "#C9D6EA", "#FFD6A5"];
 
@@ -77,7 +90,9 @@ for (let i = 0; i < numShapes; i++) {
     shape.style.width = `${size}px`;
     shape.style.height = `${size}px`;
 
-
+    // Set random position across the entire screen (temporarily removing exclusion)
+    shape.style.top = `${getRandomInt(0, 100)}vh`;
+    shape.style.left = `${getRandomInt(0, 100)}vw`;
 
     // Set random color
     setRandomColor(shape);
@@ -88,22 +103,13 @@ for (let i = 0; i < numShapes; i++) {
     // Set an interval to change the color every 3-5 seconds
     setInterval(() => {
         setRandomColor(shape);
-    }, getRandomInt(3000, 5000)); // Random interval between 3 and 5 seconds
+    }, getRandomInt(3000, 5000));
 }
 
 // Function to set a random color from the palette to a shape
 function setRandomColor(shape) {
     const randomColor = colorPalette[Math.floor(Math.random() * colorPalette.length)];
     shape.style.backgroundColor = randomColor;
-}
-
-// Helper function to generate a random integer, excluding a specified range
-function getRandomIntExcluding(min, max, excludeMin, excludeMax) {
-    let random;
-    do {
-        random = Math.floor(Math.random() * (max - min + 1)) + min;
-    } while (random >= excludeMin && random <= excludeMax);
-    return random;
 }
 
 
