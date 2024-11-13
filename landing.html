@@ -3,20 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Asianna's Website</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Asis Test</title>
+    <style>
+        /* Monitor styling */
+        .monitor {
+            position: relative;
+            width: 400px;
+            height: 300px;
+            background: #444;
+            border: 8px solid #333;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            transform: rotateX(20deg) rotateY(10deg) perspective(1000px);
+            margin: 100px auto;
+        }
+
+        /* Screen styling */
+        .screen {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 100px;
+            background-color: #000;
+            border-radius: 4px;
+            padding: 15px;
+            box-shadow: inset 0 0 10px rgba(0, 255, 0, 0.5);
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        /* Keyboard styling */
+        .keyboard {
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background-color: #333;
+            border-top: 8px solid #222;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5);
+        }
+    </style>
 </head>
 <body>
     <div class="monitor">
         <div class="screen">
-            <div id="output"></div>
-            <input type="text" id="inputField" placeholder="Type here..." autofocus>
+            <p>Welcome to Asianna's Website</p>
+            <input type="text" placeholder="Type here...">
         </div>
         <div class="keyboard">
-            <!-- Add keys or buttons if you want more detail on the keyboard -->
+            <!-- Add more styles or buttons if needed -->
+            <p>Keyboard</p>
         </div>
     </div>
-    <script src="script.js"></script>
 </body>
 </html>
 
