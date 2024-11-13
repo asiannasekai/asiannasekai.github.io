@@ -1,50 +1,67 @@
-// Basic Three.js setup
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-camera.position.z = 5;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Monitor Test</title>
+    <style>
+        /* Monitor styling */
+        .monitor {
+            position: relative;
+            width: 400px;
+            height: 300px;
+            background: #444;
+            border: 8px solid #333;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            transform: rotateX(20deg) rotateY(10deg) perspective(1000px);
+            margin: 100px auto;
+        }
 
-const renderer = new THREE.WebGLRenderer({ antialias: true });
-renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.shadowMap.enabled = true;
-document.body.appendChild(renderer.domElement);
+        /* Screen styling */
+        .screen {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 100px;
+            background-color: #000;
+            border-radius: 4px;
+            padding: 15px;
+            box-shadow: inset 0 0 10px rgba(0, 255, 0, 0.5);
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+        }
 
-// Monitor geometry and material
-const monitorGeometry = new THREE.BoxGeometry(3.5, 2.5, 0.1);
-const monitorMaterial = new THREE.MeshStandardMaterial({ color: 0x333333 });
-const monitor = new THREE.Mesh(monitorGeometry, monitorMaterial);
-scene.add(monitor);
-
-// Screen geometry and material (inner screen area)
-const screenGeometry = new THREE.BoxGeometry(3.3, 2.3, 0.05);
-const screenMaterial = new THREE.MeshStandardMaterial({ color: 0x111111 });
-const screen = new THREE.Mesh(screenGeometry, screenMaterial);
-screen.position.z = 0.06;
-monitor.add(screen);
-
-// Lighting for depth
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-scene.add(ambientLight);
-
-const pointLight = new THREE.PointLight(0xffffff, 0.8);
-pointLight.position.set(5, 5, 5);
-scene.add(pointLight);
-
-// Center and scale monitor in the scene
-monitor.rotation.x = -0.1;
-monitor.position.z = -1;
-
-// Resize and render
-function animate() {
-    requestAnimationFrame(animate);
-    renderer.render(scene, camera);
-}
-
-animate();
-
-window.addEventListener('resize', () => {
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-});
+        /* Keyboard styling */
+        .keyboard {
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background-color: #333;
+            border-top: 8px solid #222;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="monitor">
+        <div class="screen">
+            <p>Welcome to Asianna's Website</p>
+            <input type="text" placeholder="Type here...">
+        </div>
+        <div class="keyboard">
+            <!-- Add more styles or buttons if needed -->
+            <p>Keyboard</p>
+        </div>
+    </div>
+</body>
+</html>
 
 
