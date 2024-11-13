@@ -3,67 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asis Test</title>
+    <title>3D Monitor with Three.js</title>
     <style>
-        /* Monitor styling */
-        .monitor {
-            position: relative;
-            width: 400px;
-            height: 300px;
-            background: #444;
-            border: 8px solid #333;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-            transform: rotateX(20deg) rotateY(10deg) perspective(1000px);
-            margin: 100px auto;
+        body, html {
+            margin: 0;
+            overflow: hidden;
+            background-color: #222;
         }
-
-        /* Screen styling */
-        .screen {
+        #overlay {
             position: absolute;
-            top: 20px;
-            left: 20px;
-            right: 20px;
-            bottom: 100px;
-            background-color: #000;
-            border-radius: 4px;
-            padding: 15px;
-            box-shadow: inset 0 0 10px rgba(0, 255, 0, 0.5);
-            color: #00ff00;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             font-family: 'Courier New', Courier, monospace;
+            color: #00ff00;
+            text-align: center;
+            z-index: 1;
         }
-
-        /* Keyboard styling */
-        .keyboard {
-            position: absolute;
-            bottom: -50px;
-            left: 0;
-            right: 0;
-            height: 60px;
-            background-color: #333;
-            border-top: 8px solid #222;
-            border-radius: 5px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5);
+        #inputField {
+            color: #00ff00;
+            background: none;
+            border: none;
+            font-size: 1.2em;
+            outline: none;
         }
     </style>
 </head>
 <body>
-    <div class="monitor">
-        <div class="screen">
-            <p>Welcome to Asianna's Website</p>
-            <input type="text" placeholder="Type here...">
-        </div>
-        <div class="keyboard">
-            <!-- Add more styles or buttons if needed -->
-            <p>Keyboard</p>
-        </div>
+    <div id="overlay">
+        <p>Welcome to Asianna's website</p>
+        <p>What brings you here?</p>
+        <input type="text" id="inputField" placeholder="Type here...">
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
-
-
 
 
