@@ -1,47 +1,60 @@
 // script.js
 
-const output = document.getElementById("output");
-const inputField = document.getElementById("inputField");
+// Basic Three.js setup
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+camera.position.z = 5;
 
-let messages = [
-    "Welcome to Asianna's website.",
-    "What brings you here?",
-    "Type your answer and press Enter to continue..."
-];
-let currentMessageIndex = 0;
+const renderer = new THREE.WebGLRenderer();
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
 
-function displayMessage() {
-    if (currentMessageIndex < messages.length) {
-        output.innerHTML += `<p>${messages[currentMessageIndex]}</p>`;
-        currentMessageIndex++;
-        output.scrollTop = output.scrollHeight;
-    }
+// Monitor geometry and material
+const monitorGeometry = new THREE.BoxGeometry(2.5, 1.5, 0.1);
+const monitorMaterial = new THREE.MeshBasicMaterial({ color: 0x333333 });
+const monitor = new THREE.Mesh(monitorGeometry, monitorMaterial);
+scene.add(monitor);
+
+// Screen geometry and material (inner screen area)
+const screenGeometry = new THREE.BoxGeometry(2.3, 1.3, 0.05);
+const screenMaterial = new THREE.MeshBasicMaterial({ color: 0x000000 });
+const screen = new THREE.Mesh(screenGeometry, screenMaterial);
+screen.position.z = 0.06;
+scene.add(screen);
+
+// Keyboard geometry and material
+const keyboardGeometry = new THREE.BoxGeometry(2.5, 0.3, 0.1);
+const keyboardMaterial = new THREE.MeshBasicMaterial({ color: 0x222222 });
+const keyboard = new THREE.Mesh(keyboardGeometry, keyboardMaterial);
+keyboard.position.y = -1;
+scene.add(keyboard);
+
+// Add some lighting for realism
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+scene.add(ambientLight);
+const pointLight = new THREE.PointLight(0xffffff, 1);
+pointLight.position.set(5, 5, 5);
+scene.add(pointLight);
+
+// Animation loop
+function animate() {
+    requestAnimationFrame(animate);
+
+    // Slight rotation animation for a 3D effect
+    monitor.rotation.y += 0.001;
+    screen.rotation.y += 0.001;
+    keyboard.rotation.y += 0.001;
+
+    renderer.render(scene, camera);
 }
 
-displayMessage();
+animate();
 
-inputField.addEventListener("keydown", function (event) {
-    if (event.key === "Enter") {
-        const userInput = inputField.value.trim();
-        if (userInput) {
-            output.innerHTML += `<p>> ${userInput}</p>`;
-            inputField.value = "";
-            generateResponse(userInput);
-            output.scrollTop = output.scrollHeight;
-        }
-    }
+// Adjust canvas size on window resize
+window.addEventListener('resize', () => {
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
 });
-
-function generateResponse(input) {
-    if (input.toLowerCase().includes("portfolio")) {
-        output.innerHTML += `<p>Loading portfolio section...</p>`;
-    } else if (input.toLowerCase().includes("contact")) {
-        output.innerHTML += `<p>Opening contact details...</p>`;
-    } else {
-        output.innerHTML += `<p>I didn’t quite get that. Try "portfolio" or "contact".</p>`;
-    }
-    displayMessage();
-}
-
 
 
