@@ -10,8 +10,8 @@ document.body.appendChild(renderer.domElement);
 
 // Load textures
 const textureLoader = new THREE.TextureLoader();
-const monitorTexture = textureLoader.load('path/to/monitor-texture.jpg'); // Replace with your monitor texture path
-const screenTexture = textureLoader.load('path/to/screen-texture.jpg'); // Replace with your screen texture path
+const monitorTexture = textureLoader.load('/Users/asiannasekai/Desktop/website_mask.png'); // Replace with your monitor texture path
+const screenTexture = textureLoader.load('/Users/asiannasekai/Desktop/screen texture.png'); // Replace with your screen texture path
 
 // Monitor geometry and material
 const monitorGeometry = new THREE.BoxGeometry(2.5, 1.5, 0.1);
