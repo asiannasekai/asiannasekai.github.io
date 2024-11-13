@@ -1,357 +1,79 @@
-/* General Landing Page Styling */
-/* Reset body and html */
-body, html {
+/* Reset */
+* {
     margin: 0;
     padding: 0;
-    height: 100%;
-    /*width: 100%; /* Ensure full viewport width */
-    color: #fefefa;
-    font-family: Arial, sans-serif;
-    overflow: hidden;
+    box-sizing: border-box;
 }
 
-/* Container for central page content */
-.page-content {
+/* Base page styles */
+body, html {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    text-align: center;
-    min-height: 100vh;
-    z-index: 2; /* Place above the backdrop */
-}
-/* Flowing Words Header */
-.header-container {
-    width: 100%;
-    padding: 20px 0;
-    text-align: center;
-    background-color: transparent; /* Make it transparent to see animated backdrop */
-    position: relative;
-    z-index: 1; /* Ensures it is above the backdrop */
-}
-
-
-.flowing-words {
-    display: inline-flex;
-    gap: 30px;
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #fefefa;
-    white-space: nowrap;
-    animation: flow 20s linear infinite;
-}
-
-.flowing-words span {
-    display: inline-block;
-    animation: bendyWave 6s ease-in-out infinite;
-}
-
-/* Bendy Wave Animation for Each Word */
-@keyframes bendyWave {
-    0%, 100% { transform: translateY(0); }
-    25% { transform: translateY(-10px) rotate(-5deg); }
-    50% { transform: translateY(0); }
-    75% { transform: translateY(10px) rotate(5deg); }
-}
-
-/* Flow Animation Across the Screen */
-@keyframes flow {
-    from {
-        transform: translateX(100%);
-    }
-    to {
-        transform: translateX(-100%);
-    }
-}
-
-/* Landing Page Content */
-.landing-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-top: 50px;
-    flex-grow: 1;
-    z-index: 2; /* Places it above the header and backdrop */
-}
-
-/* Title Animation */
-#title {
-    font-size: 4em;
-    letter-spacing: 0.5em;
-    opacity: 0;
-    color: #fefefa;
-    animation: fadeInTitle 2s forwards;
-}
-
-/* SVG Globe Styling */
-.globe-container {
-    margin: 20px 0;
-    opacity: 0;
-    animation: fadeInGlobe 2s 1s forwards;
-}
-
-.globe {
-    animation: spin 10s linear infinite;
-    fill: #fefefa;
-}
-
-/* Subtitle and Enter Button */
-#subtitle {
-    color: #fefefa;
-    opacity: 0;
-    animation: fadeInText 2s 3s forwards;
-}
-
-.enter-button {
-    background-color: #fefefa;
-    color: #306030;
-    padding: 15px 30px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-size: 1.2em;
-    margin-top: 20px;
-    opacity: 0;
-    animation: fadeInText 2s 3s forwards;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.enter-button:hover {
-    background-color: #306030;
-    color: #fefefa;
-    border: 2px solid #fefefa;
-}
-
-.fade-in {
-    opacity: 1;
-    transition: opacity 2s ease-in;
-}
-
-
-/* Keyframes for Animations */
-@keyframes fadeInTitle {
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes fadeInGlobe {
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes fadeInText {
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-/* Media Query for Mobile Devices */
-@media (max-width: 768px) {
-    /* General Adjustments */
-    body, html {
-        font-size: 14px; /* Adjust base font size for smaller screens */
-        padding: 10px; /* Add padding to avoid content touching screen edges */
-    }
-
-    /* Flowing Words Header */
-    .flowing-words {
-        font-size: 1em; /* Reduce font size for flowing words */
-        gap: 10px; /* Decrease gap between words */
-    }
-
-    /* Title Styling */
-    #title {
-        font-size: 2.5em; /* Scale down the title for smaller screens */
-        letter-spacing: 0.2em;
-    }
-
-    /* Globe Styling */
-    .globe-container {
-        margin: 10px 0;
-    }
-
-    .globe {
-    width: 20vw; /* 20% of the viewport width */
-    max-width: 100px; /* Cap the maximum size */
-    }
-
-    /* Subtitle and Enter Button */
-    #subtitle {
-        font-size: 1em; /* Adjust subtitle font size */
-    }
-
-    .enter-button {
-        padding: 10px 20px; /* Reduce padding for button */
-        font-size: 1em; /* Reduce button text size */
-    }
-
-    /* Spacing Adjustments */
-    .landing-page {
-        margin-top: 30px; /* Adjust spacing from the header */
-    }
-}
-
-/* Info Icon Styling */
-.info-icon {
-    font-size: 0.2em; /* Smaller font size */
-    color: #fefefa;
-    background-color: transparent;
-    border-radius: 30%;
-    padding: 2px; /* Adjust padding for smaller size */
-    cursor: pointer;
-    margin-left: 3px;
-    transition: background-color 0.3s ease;
-}
-
-.info-icon:hover {
-    background-color: transparent /* Light pink background on hover */
-}
-
-/* Blurb Styling */
-.hover-blurb {
-    position: absolute;
-    bottom: 20px;
-    font-size: 1em;
-    color: #fefefa;
-    background-color: rgba(0, 0, 0, 0.7); /* Dark background with opacity */
-    padding: 10px 20px;
-    border-radius: 8px;
-    text-align: center;
-    width: 80%;
-    max-width: 400px;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-
-
-
-
-/* Random Background Color Animation */
-/* Flowing Background Animation */
-@keyframes colorFlow {
-    0% { background-color: #f3dcb6; } /* Light beige */
-    25% { background-color: #d5bda6; } /* Soft brown */
-    50% { background-color: #a3a9d7; } /* Light lavender blue */
-    75% { background-color: #d7a3b3; } /* Soft pink */
-    100% { background-color: #f3dcb6; } /* Return to light beige */
-}
-
-.backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
     height: 100vh;
-    background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4, #fcb69f, #ff9a9e);
-    background-size: 200% 200%;
-    animation: rainbowBackground 15s ease infinite;
-    z-index: -1;
+    background-color: #222;
+    font-family: 'Courier New', Courier, monospace;
 }
 
-@keyframes rainbowBackground {
-    0% {
-        background-position: 0% 50%;
-        background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4, #fcb69f, #ff9a9e);
-    }
-    25% {
-        background-position: 50% 50%;
-        background: linear-gradient(45deg, #fcb69f, #ff9a9e, #fad0c4, #a1c4fd, #c2e9fb);
-    }
-    50% {
-        background-position: 100% 50%;
-        background: linear-gradient(45deg, #a1c4fd, #c2e9fb, #d4fc79, #96e6a1, #fcb69f);
-    }
-    75% {
-        background-position: 50% 50%;
-        background: linear-gradient(45deg, #d4fc79, #96e6a1, #f9f9b6, #ffecd2, #a1c4fd);
-    }
-    100% {
-        background-position: 0% 50%;
-        background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4, #fcb69f, #ff9a9e);
-    }
+/* Monitor styling */
+.monitor {
+    position: relative;
+    width: 400px;
+    height: 300px;
+    background: #444;
+    border: 8px solid #333;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    transform: rotateX(20deg) rotateY(10deg) perspective(1000px);
 }
 
-
-
-
-/* Morphing Shape Animation */
-/* Mercury Shape Styling with Additional Effects */
-.shape {
+/* Screen styling */
+.screen {
     position: absolute;
-    width: 100px; /* Starting size; JavaScript will randomize */
-    height: 100px;
-    background: radial-gradient(circle at 30% 30%, #f0f0f0, #bcbcbc, #707070);
-    border-radius: 50%;
-    box-shadow: 
-        inset -10px -10px 20px rgba(255, 255, 255, 0.7), /* Highlight */
-        inset 10px 10px 20px rgba(0, 0, 0, 0.3),        /* Inner shadow */
-        5px 5px 15px rgba(0, 0, 0, 0.2),               /* Outer shadow */
-        -5px -5px 15px rgba(255, 255, 255, 0.3);       /* Soft outer highlight */
-    filter: blur(1px) contrast(1.1);
-    transform-style: preserve-3d;
-    animation: morph 8s infinite ease-in-out, float 10s infinite ease-in-out alternate;
-    transition: transform 1s ease, background-color 1.5s ease;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 100px;
+    background-color: #000;
+    border-radius: 4px;
+    padding: 15px;
+    box-shadow: inset 0 0 10px rgba(0, 255, 0, 0.5);
+    overflow-y: auto;
+    color: #00ff00;
 }
 
-/* Reflection Effect */
-.shape::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
+/* Retro green text */
+#output {
+    color: #00ff00;
+    font-size: 1em;
+}
+
+/* Input field styling */
+#inputField {
+    border: none;
+    background: none;
+    color: #00ff00;
+    font-size: 1em;
+    outline: none;
     width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.5), transparent);
-    border-radius: inherit;
-    transform: rotate(-20deg);
-    opacity: 0.5;
-    pointer-events: none; /* Ensures reflection doesn’t interfere with interactivity */
+    caret-color: #00ff00;
 }
 
-/* Morphing Animation */
-@keyframes morph {
-    0% {
-        transform: scale(1) rotateY(0deg) rotateX(0deg);
-    }
-    25% {
-        transform: scale(1.1) rotateY(20deg) rotateX(10deg);
-        border-radius: 40% 60% 60% 40%;
-    }
-    50% {
-        transform: scale(1) rotateY(-20deg) rotateX(-10deg);
-        border-radius: 60% 40% 50% 50%;
-    }
-    75% {
-        transform: scale(1.1) rotateY(10deg) rotateX(20deg);
-        border-radius: 50% 50% 40% 60%;
-    }
-    100% {
-        transform: scale(1) rotateY(0deg) rotateX(0deg);
-        border-radius: 50%;
-    }
+/* Keyboard styling */
+.keyboard {
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background-color: #333;
+    border-top: 8px solid #222;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5);
 }
-
-/* Float Animation for Movement */
-@keyframes float {
-    0% { transform: translate(0, 0); }
-    25% { transform: translate(-60px, 50px) rotate(5deg); }
-    50% { transform: translate(80px, -80px) rotate(-5deg); }
-    75% { transform: translate(-50px, 60px) rotate(10deg); }
-    100% { transform: translate(0, 0); }
-}
-
 
 
 
