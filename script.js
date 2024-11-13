@@ -64,8 +64,30 @@ const glowMaterial = new THREE.ShaderMaterial({
         glowColor: { type: 'c', value: new THREE.Color(0x00ff00) },
         viewVector: { type: 'v3', value: camera.position }
     },
-    vertexShader: `...`, // Add custom glow vertex shader code here
-    fragmentShader: `...` // Add custom glow fragment shader code here
+    vertexShader: `
+    uniform vec3 viewVector;
+    uniform float c;
+    uniform float p;
+    varying float intensity;
+
+    void main() {
+        vec3 vNormal = normalize(normalMatrix * normal);
+        vec3 vNormViewVector = normalize(viewVector - (modelViewMatrix * vec4(position, 1.0)).xyz);
+        intensity = pow(c - dot(vNormal, vNormViewVector), p);
+
+        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+    }
+`,
+    fragmentShader: `
+    uniform vec3 glowColor;
+    varying float intensity;
+
+    void main() {
+        vec3 glow = glowColor * intensity;
+        gl_FragColor = vec4(glow, 1.0);
+    }
+`,
+
 });
 
 // Animation loop
