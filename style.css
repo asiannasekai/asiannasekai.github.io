@@ -1,36 +1,39 @@
-/* General Reset */
+/* Reset styles */
 body, html {
   margin: 0;
   padding: 0;
   overflow: hidden;
   font-family: Arial, sans-serif;
-  color: #f2f2e7; /* Match palette_contorno */
-  background-color: #1d1d1b; /* Match paleta_fundo */
+  color: #f2f2e7; /* Matches paleta_contorno for consistency */
+  background-color: #1d1d1b; /* Matches paleta_fundo */
 }
 
+/* Content styles */
 #content {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  z-index: 10;
+  z-index: 10; /* Ensure content is above the canvas */
 }
 
 h1 {
   font-size: 3rem;
-  margin: 0;
+  margin-bottom: 0.5rem;
 }
 
 p {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  margin-top: 0;
 }
 
+/* Ensure the canvas takes up the full screen */
 canvas {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 0; /* Canvas as background */
+  z-index: 0; /* Canvas in the background */
   display: block;
 }
 
