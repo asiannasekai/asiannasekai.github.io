@@ -27,15 +27,14 @@ camera.position.z = 5;
 
 // Animation loop
 function animate() {
+  console.log("Animating..."); // Add this to debug
   requestAnimationFrame(animate);
-
-  // Add rotations for interactivity
   fractal.rotation.x += 0.01;
   fractal.rotation.y += 0.01;
-
-  // Render the scene
   renderer.render(scene, camera);
 }
+animate();
+
 
 // Handle window resize
 window.addEventListener('resize', () => {
