@@ -1,23 +1,38 @@
-/* Remove default margins and make full-screen */
+/* General Reset */
 body, html {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  height: 100%;
-  background: radial-gradient(circle, #000428, #004e92);
+  font-family: Arial, sans-serif;
+  color: #f2f2e7; /* Match palette_contorno */
+  background-color: #1d1d1b; /* Match paleta_fundo */
 }
 
-/* Fractal container fills the viewport */
-#fractal-container {
-  position: fixed;
+#content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10;
+}
+
+h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+p {
+  font-size: 1.5rem;
+}
+
+canvas {
+  position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: black; /* Add background to check visibility */
+  z-index: 0; /* Canvas as background */
+  display: block;
 }
-
-
 
 
 
