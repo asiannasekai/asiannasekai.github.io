@@ -1,24 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Landing Page</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <!-- Content for your landing page -->
-  <div id="content">
-    <h1>Welcome to My Landing Page</h1>
-    <p>Interactive fractals meet dynamic design. Scroll to explore!</p>
-  </div>
+//  This is a simplified example of the setup and fish animation with Three.js.
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
-  <!-- Link the p5.js library -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
-  <!-- Link your custom sketch -->
-  <script src="sketch.js"></script>
-</body>
-</html>
+//Set up the scene, camera and renderer
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+const renderer = new THREE.WebGLRenderer();
+renderer.setSize( window.innerWidth, window.innerHeight );
+document.body.appendChild( renderer.domElement );
+//load 3d models
+const loader = new GLTFLoader();
+let sekaiFish = []
+let fishGroup = new THREE.Group()
+loader.load( './fish.glb', function ( gltf ) {
+    const fishSe = gltf.scene
+    fishSe.scale.set(0.05,0.05,0.05);
+    fishSe.position.set(-2,0,0)
+    const fishKa = gltf.scene.clone()
+    fishKa.scale.set(0.05,0.05,0.05);
+    fishKa.position.set(0,0,0)
+    const fishI = gltf.scene.clone()
+    fishI.scale.set(0.05,0.05,0.05);
+    fishI.position.set(2,0,0)
+    sekaiFish.push(fishSe, fishKa, fishI)
+    fishGroup.add(fishSe, fishKa, fishI)
+	scene.add( fishGroup );
+}, undefined, function ( error ) {
+
+	console.error( error );
+
+} );
+// Set up the camera
+camera.position.z = 5;
+
+//animation loop
+const animate = function () {
+    requestAnimationFrame( animate );
+    //Update fish positions here
+    if(sekaiFish.length>0){
+        sekaiFish.forEach((fish,index)=>{
+             fish.position.y += Math.sin((Date.now()+index*1000)*0.001)*0.01
+             fish.rotation.y += 0.001
+         })
+    }
+    renderer.render( scene, camera );
+};
 
 
 
