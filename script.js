@@ -1,12 +1,21 @@
-// Mobile menu functionality
-const menuBtn = document.querySelector('.menu-btn');
-const navLinks = document.querySelector('.nav-links');
+// Mobile Menu Toggle
+document.addEventListener('DOMContentLoaded', function() {
+    const menuBtn = document.querySelector('.menu-btn');
+    const navLinks = document.querySelector('.nav-links');
 
-menuBtn.addEventListener('click', () => {
-    navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+    menuBtn.addEventListener('click', () => {
+        navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!navLinks.contains(e.target) && !menuBtn.contains(e.target)) {
+            navLinks.style.display = 'none';
+        }
+    });
 });
 
-// Smooth scrolling for navigation links
+// Smooth Scrolling for Navigation Links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -53,16 +62,18 @@ progressBars.forEach(bar => {
     observer.observe(bar);
 });
 
-// Form submission handling
-const contactForm = document.querySelector('.contact-form');
-if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        // Add your form submission logic here
-        alert('Thank you for your message! We will get back to you soon.');
-        contactForm.reset();
-    });
-}
+// Contact Form Submission
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.querySelector('.contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Add your form submission logic here
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+    }
+});
 
 // Parallax effect for hero section
 const hero = document.querySelector('.hero');
@@ -103,22 +114,23 @@ serviceCards.forEach(card => {
     });
 });
 
-// Add scroll reveal animation
-const revealElements = document.querySelectorAll('.about-content, .service-card, .expertise-item');
-const revealObserver = new IntersectionObserver((entries) => {
+// Scroll Animation
+const observerOptions = {
+    threshold: 0.1
+};
+
+const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.style.opacity = '1';
             entry.target.style.transform = 'translateY(0)';
         }
     });
-}, {
-    threshold: 0.1
-});
+}, observerOptions);
 
-revealElements.forEach(element => {
-    element.style.opacity = '0';
-    element.style.transform = 'translateY(20px)';
-    element.style.transition = 'all 0.6s ease-out';
-    revealObserver.observe(element);
+document.querySelectorAll('.service-card, .expertise-item, .founder-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'all 0.6s ease-out';
+    observer.observe(el);
 });
